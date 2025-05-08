@@ -1,5 +1,7 @@
 package com.example.social_network_api.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,12 +22,6 @@ public class UserController{
 	@Autowired
 	private UserService userService;
 	
-	// endpoint to create a user
-	@PostMapping
-	public User createUser(@RequestBody User user) {
-		return userService.createUser(user);
-	}
-	
 	// endpoint to get user by ID
 	@GetMapping("/{id}")
 	public User getUserById(@PathVariable Long id) {
@@ -34,7 +30,7 @@ public class UserController{
 	
 	// endpoint to get user by email
 	@GetMapping("/email/{email}")
-	public User getUserByEmail(@PathVariable String email) {
+	public Optional<User> getUserByEmail(@PathVariable String email) {
 	return userService.getUserByEmail(email);
 }
 	
