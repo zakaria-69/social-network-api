@@ -1,5 +1,7 @@
 package com.example.social_network_api.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +15,10 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	//createUser
-	public User createUser(User user) {
-		return this.userRepository.save(user);
+	//public User createUser(User user) {
+		//return this.userRepository.save(user);
 		
-	}
+	//}
 	
 	//get user by id
 	public User getUserById(Long id) {
@@ -24,7 +26,7 @@ public class UserService {
 	}
 	
 	// get user by email
-	public User getUserByEmail(String email) {
+	public Optional<User> getUserByEmail(String email) {
 		return this.userRepository.findByEmail(email);
 	}
 	
